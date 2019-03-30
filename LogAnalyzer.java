@@ -32,7 +32,7 @@ public class LogAnalyzer
         
         hourCounts = new int[24];
         
-        reader = new LogfileReader();
+        reader = new LogfileReader(logFileName);
         
         
     }
