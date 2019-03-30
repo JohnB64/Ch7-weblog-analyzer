@@ -56,7 +56,7 @@ public class LogAnalyzer
         
      int topHours = 0;
      
-     for(int hours = 1; hours < hourCounts.length; hours++) {
+     for(int hours = 18; hours < hourCounts.length; hours++) {
          
          if(hourCounts[hours] >= hourCounts[topHours]) {
              
