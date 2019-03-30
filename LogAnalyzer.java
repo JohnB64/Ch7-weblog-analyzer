@@ -98,7 +98,7 @@ public class LogAnalyzer
          
          if(busyFirstHour < hours) {
              
-             busySecondHour = busyFirstHour;
+             busySecondHour += busyFirstHour;
              
              busyFirstHour = hours;
              
@@ -106,7 +106,7 @@ public class LogAnalyzer
             
             else if(busySecondHour < hours) {
              
-             busyFirstHour = busySecondHour;
+             busyFirstHour += busySecondHour;
                 
              busySecondHour = hours;   
                 
