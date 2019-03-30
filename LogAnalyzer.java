@@ -36,6 +36,21 @@ public class LogAnalyzer
         
         
     }
+    
+    public int numberOfAccesses() {
+        
+        int total = 0;
+        
+        for(int hours = 0; hours < hourCounts.length; hours++) {
+            
+            total = total + hourCounts[hours];
+            
+        }
+        
+        return total;
+        
+        
+    }
 
     /**
      * Analyze the hourly access data from the log file.
