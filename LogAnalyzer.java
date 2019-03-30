@@ -51,6 +51,78 @@ public class LogAnalyzer
         
         
     }
+    
+    public int busiestHour() {
+        
+     int index = 0;
+     
+     return index;
+        
+    }
+    
+    public int quietestHour() {
+        
+     int index = 0;
+     
+     return index;
+        
+    }
+    
+    public int busiestTwoHour() {
+        
+     int index = 0;
+     
+     return index;
+        
+    }
+    
+    public int quietestDay() {
+        
+     int index = 0;
+     
+     return index;
+        
+    }
+    
+    public int busiestDay() {
+        
+     int index = 0;
+     
+     return index;
+        
+    }
+    
+    public int totalAccessesPerMonth() {
+        
+     int index = 0;
+     
+     return index;
+        
+    }
+    
+    public int quietestMonth() {
+        
+     int index = 0;
+     
+     return index;
+        
+    }
+    
+    public int busiestMonth() {
+        
+     int index = 0;
+     
+     return index;
+        
+    }
+    
+    public int averageAccessesPerMonth() {
+        
+     int index = 0;
+     
+     return index;
+        
+    }
 
     /**
      * Analyze the hourly access data from the log file.
