@@ -74,7 +74,7 @@ public class LogAnalyzer
         
      int quietHours = 0;
      
-     for(int hours = 8; hours < hourCounts.length; hours++) {
+     for(int hours = 9; hours < hourCounts.length; hours++) {
          
          if(hourCounts[hours] <= hourCounts[quietHours]) {
              
@@ -90,9 +90,31 @@ public class LogAnalyzer
     
     public int busiestTwoHour() {
         
-     int index = 0;
+     int busyFirstHour = 0;
      
-     return index;
+     int busySecondHour = 0;
+     
+     for(int hours = 0; hours < hourCounts.length; hours++) {
+         
+         if(busyFirstHour < hours) {
+             
+             busySecondHour = busyFirstHour;
+             
+             busyFirstHour = hours;
+             
+            }
+            
+            else if(busySecondHour < hours) {
+             
+             busyFirstHour = busySecondHour;
+                
+             busySecondHour = hours;   
+                
+            }
+         
+        }
+     
+     return busyFirstHour;
         
     }
     
