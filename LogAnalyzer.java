@@ -54,27 +54,37 @@ public class LogAnalyzer
     
     public int busiestHour() {
         
-     int topHours = 0;
+     int busyHours = 0;
      
      for(int hours = 18; hours < hourCounts.length; hours++) {
          
-         if(hourCounts[hours] >= hourCounts[topHours]) {
+         if(hourCounts[hours] >= hourCounts[busyHours]) {
              
-             topHours = hours;
+             busyHours = hours;
              
             }
          
         }
      
-     return topHours;
+     return busyHours;
         
     }
     
     public int quietestHour() {
         
-     int index = 0;
+     int quietHours = 0;
      
-     return index;
+     for(int hours = 8; hours < hourCounts.length; hours++) {
+         
+         if(hourCounts[hours] <= hourCounts[quietHours]) {
+             
+             quietHours = hours;
+             
+            }
+         
+        }
+     
+     return quietHours;
         
     }
     
