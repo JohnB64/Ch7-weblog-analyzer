@@ -12,6 +12,9 @@ public class LogAnalyzer
 {
     // Where to calculate the hourly access counts.
     private int[] hourCounts;
+    private int[] dayCounts;
+    private int[] monthCounts;
+    private int[] yearCounts;
     // Use a LogfileReader to access the data.
     private LogfileReader reader;
 
@@ -23,6 +26,9 @@ public class LogAnalyzer
         // Create the array object to hold the hourly
         // access counts.
         hourCounts = new int[24];
+        dayCounts = new int[32];
+        monthCounts = new int[13];
+        yearCounts = new int[12];
         // Create the reader to obtain the data.
         reader = new LogfileReader();
     }
@@ -31,6 +37,9 @@ public class LogAnalyzer
         
         
         hourCounts = new int[24];
+        dayCounts = new int[32];
+        monthCounts = new int[13];
+        yearCounts = new int[12];
         
         reader = new LogfileReader(logFileName);
         
@@ -177,6 +186,42 @@ public class LogAnalyzer
             hourCounts[hour]++;
         }
     }
+    
+    /**
+     * Analyze the daily access data from the log file.
+     */
+    public void analyzeDailyData()
+    {
+        while(reader.hasNext()) {
+            LogEntry entry = reader.next();
+            int day = entry.getDay();
+            dayCounts[day]++;
+        }
+    }
+    
+    /**
+     * Analyze the monthly access data from the log file.
+     */
+    public void analyzeMonthlyData()
+    {
+        while(reader.hasNext()) {
+            LogEntry entry = reader.next();
+            int month = entry.getMonth();
+            monthCounts[month]++;
+        }
+    }
+    
+    /**
+     * Analyze the yearly access data from the log file.
+     */
+    public void analyzeYearlyData()
+    {
+        while(reader.hasNext()) {
+            LogEntry entry = reader.next();
+            int year = entry.getYear();
+            yearCounts[year]++;
+        }
+    }
 
     /**
      * Print the hourly counts.
@@ -188,6 +233,45 @@ public class LogAnalyzer
         System.out.println("Hr: Count");
         for(int hour = 0; hour < hourCounts.length; hour++) {
             System.out.println(hour + ": " + hourCounts[hour]);
+        }
+    }
+    
+    /**
+     * Print the daily counts.
+     * These should have been set with a prior
+     * call to analyzeDailyData.
+     */
+    public void printDailyCounts()
+    {
+        System.out.println("Day: Count");
+        for(int day = 0; day < dayCounts.length; day++) {
+            System.out.println(day + ": " + dayCounts[day]);
+        }
+    }
+    
+    /**
+     * Print the monthly counts.
+     * These should have been set with a prior
+     * call to analyzeMonthlyData.
+     */
+    public void printMonthlyCounts()
+    {
+        System.out.println("Month: Count");
+        for(int month = 0; month < monthCounts.length; month++) {
+            System.out.println(month + ": " + monthCounts[month]);
+        }
+    }
+    
+    /**
+     * Print the yearly counts.
+     * These should have been set with a prior
+     * call to analyzeYearlyData.
+     */
+    public void printYearlyCounts()
+    {
+        System.out.println("Year: Count");
+        for(int year = 0; year < yearCounts.length; year++) {
+            System.out.println(year + ": " + yearCounts[year]);
         }
     }
     
