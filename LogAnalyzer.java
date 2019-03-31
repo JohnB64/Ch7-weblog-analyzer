@@ -103,31 +103,27 @@ public class LogAnalyzer
     
     public int busiestTwoHour() {
         
-     int busyFirstHour = 0;
+     int busyTwoHour = 0;
      
-     int busySecondHour = 0;
+     
      
      for(int hours = 0; hours < hourCounts.length; hours++) {
          
-         if(busyFirstHour < hours) {
-             
-             busySecondHour += busyFirstHour;
-             
-             busyFirstHour = hours;
+         if(busyTwoHour > 12) {
+
+             busyTwoHour -= hours;
              
             }
             
-            else if(busySecondHour < hours) {
-             
-             busyFirstHour += busySecondHour;
-                
-             busySecondHour = hours;   
+            else if(busyTwoHour < 12) {
+
+             busyTwoHour = hours;   
                 
             }
          
         }
      
-     return busyFirstHour;
+     return busyTwoHour;
         
     }
     
