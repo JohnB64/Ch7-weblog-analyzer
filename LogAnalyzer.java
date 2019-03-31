@@ -50,6 +50,10 @@ public class LogAnalyzer
         
     }
     
+    /**
+     * Shows the amount of accesses in the log file.
+     */
+    
     public int numberOfAccesses() {
         
         int total = 0;
@@ -64,6 +68,10 @@ public class LogAnalyzer
         
         
     }
+    
+    /**
+     * Shows the busiest hour count in the log file.
+     */
     
     public int busiestHour() {
         
@@ -83,6 +91,10 @@ public class LogAnalyzer
         
     }
     
+    /**
+     * Shows the quietest hour count in the log file.
+     */
+    
     public int quietestHour() {
         
      int quietHours = 0;
@@ -100,6 +112,11 @@ public class LogAnalyzer
      return quietHours;
         
     }
+    
+    /**
+     * Shows the busiest two-hour period
+     * in the log file.
+     */
     
     public int busiestTwoHour() {
         
@@ -127,6 +144,10 @@ public class LogAnalyzer
         
     }
     
+    /**
+     * Shows the quietest day count in the log file.
+     */
+    
     public int quietestDay() {
         
         
@@ -147,6 +168,10 @@ public class LogAnalyzer
         
     }
     
+    /**
+     * Shows the busiest day count in the log file.
+     */
+    
     public int busiestDay() {
         
      int busyDays = 0;
@@ -165,6 +190,11 @@ public class LogAnalyzer
         
     }
     
+    /**
+     * Shows the total amount of accesses per month
+     * in the log file.
+     */
+    
     public int totalAccessesPerMonth() {
         
      int total = 0;
@@ -178,6 +208,10 @@ public class LogAnalyzer
         return total;
         
     }
+    
+    /**
+     * Shows the quietest month count in the log file.
+     */
     
     public int quietestMonth() {
         
@@ -197,6 +231,10 @@ public class LogAnalyzer
         
     }
     
+    /**
+     * Shows the busiest month count in the log file.
+     */
+    
     public int busiestMonth() {
         
      int busyMonths = 0;
@@ -214,6 +252,11 @@ public class LogAnalyzer
      return busyMonths;
         
     }
+    
+    /**
+     * Shows the average amount of accesses per month
+     * in the log file.
+     */
     
     public int averageAccessesPerMonth() {
         
