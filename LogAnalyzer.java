@@ -19,7 +19,7 @@ public class LogAnalyzer
     private LogfileReader reader;
 
     /**
-     * Create an object to analyze hourly web accesses.
+     * Create an object to analyze hourly, daily, monthly, and yearly web accesses.
      */
     public LogAnalyzer()
     { 
@@ -28,18 +28,22 @@ public class LogAnalyzer
         hourCounts = new int[24];
         dayCounts = new int[32];
         monthCounts = new int[13];
-        yearCounts = new int[12];
+        yearCounts = new int[366];
         // Create the reader to obtain the data.
         reader = new LogfileReader();
     }
     
+    /**
+     * Create an object to analyze hourly, daily, monthly, and yearly web accesses 
+     * by file name.
+     */
     public LogAnalyzer(String logFileName) {
         
         
         hourCounts = new int[24];
         dayCounts = new int[32];
         monthCounts = new int[13];
-        yearCounts = new int[12];
+        yearCounts = new int[366];
         
         reader = new LogfileReader(logFileName);
         
@@ -65,7 +69,7 @@ public class LogAnalyzer
         
      int busyHours = 0;
      
-     for(int hours = 18; hours < hourCounts.length; hours++) {
+     for(int hours = 0; hours < hourCounts.length; hours++) {
          
          if(hourCounts[hours] >= hourCounts[busyHours]) {
              
@@ -83,7 +87,7 @@ public class LogAnalyzer
         
      int quietHours = 0;
      
-     for(int hours = 9; hours < hourCounts.length; hours++) {
+     for(int hours = 0; hours < hourCounts.length; hours++) {
          
          if(hourCounts[hours] <= hourCounts[quietHours]) {
              
@@ -129,49 +133,107 @@ public class LogAnalyzer
     
     public int quietestDay() {
         
-     int index = 0;
+        
+     int quietDays = 0;
      
-     return index;
+     for(int days = 0; days < dayCounts.length; days++) {
+         
+         if(dayCounts[days] <= dayCounts[quietDays]) {
+             
+             quietDays = days;
+             
+            }
+         
+        }
+     
+     return quietDays;
+        
         
     }
     
     public int busiestDay() {
         
-     int index = 0;
+     int busyDays = 0;
      
-     return index;
+     for(int days = 0; days < dayCounts.length; days++) {
+         
+         if(dayCounts[days] >= dayCounts[busyDays]) {
+             
+             busyDays = days;
+             
+            }
+         
+        }
+     
+     return busyDays;
         
     }
     
     public int totalAccessesPerMonth() {
         
-     int index = 0;
-     
-     return index;
+     int total = 0;
+        
+        for(int months = 0; months < monthCounts.length; months++) {
+            
+            total = total + monthCounts[months];
+            
+        }
+        
+        return total;
         
     }
     
     public int quietestMonth() {
         
-     int index = 0;
+     int quietMonths = 0;
      
-     return index;
+     for(int months = 0; months < monthCounts.length; months++) {
+         
+         if(monthCounts[months] <= monthCounts[quietMonths]) {
+             
+             quietMonths = months;
+             
+            }
+         
+        }
+     
+     return quietMonths;
         
     }
     
     public int busiestMonth() {
         
-     int index = 0;
+     int busyMonths = 0;
      
-     return index;
+     for(int months = 0; months < monthCounts.length; months++) {
+         
+         if(monthCounts[months] >= monthCounts[busyMonths]) {
+             
+             busyMonths = months;
+             
+            }
+         
+        }
+     
+     return busyMonths;
         
     }
     
     public int averageAccessesPerMonth() {
         
-     int index = 0;
+     int total = 0;
      
-     return index;
+     int average = 0;
+        
+        for(int months = 5; months < monthCounts.length; months++) {
+            
+            total = total + monthCounts[months];
+            
+            average = total / monthCounts[months];
+            
+        }
+        
+        return total;
         
     }
 
